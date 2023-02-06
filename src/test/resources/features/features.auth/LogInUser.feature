@@ -6,26 +6,10 @@
       Given Base URL is _ and input json body log in user
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
-
-    Scenario: API POST LOGIN as USER with VALID path should success then return the right email
-      Given Base URL is _ and input json body log in user
-      When Set method to POST, Set path to login, and click send button
-      Then API should return body email "grf@gmail.com"
-
-    Scenario: API POST LOGIN as USER with VALID path should success then return the right message
-      Given Base URL is _ and input json body log in user
-      When Set method to POST, Set path to login, and click send button
-      Then API should return body message "success login"
-
-    Scenario: API POST LOGIN as USER with VALID path should success then return not null token
-      Given Base URL is _ and input json body log in user
-      When Set method to POST, Set path to login, and click send button
-      Then API should return body token is not null
-
-    Scenario: API POST LOGIN as USER with VALID path should success then return the right JSON Schema
-      Given Base URL is _ and input json body log in user
-      When Set method to POST, Set path to login, and click send button
-      Then API should return the right JSON Schema log in user
+      And API should return body email "alifa30@gmail.com"
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
 
     Scenario: API POST LOGIN as USER with blank username should success then return 400 Bad Request response code
       Given Base URL is _ and input json body log in user with empty username

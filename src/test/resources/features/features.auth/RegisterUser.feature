@@ -6,21 +6,13 @@
       Given Base URL is _ and input json body
       When Set method to POST, set path to register, and click send button
       Then API should return response 201
-
-    Scenario: API POST REGISTER as USER with VALID path should success then return the right message
-      Given Base URL is _ and input json body
-      When Set method to POST, set path to register, and click send button
-      Then API should return body message "success create account"
+      And API should return body message "success create account"
 
     Scenario: API POST REGISTER as USER with INVALID path should success then return 404 Not Found response code
       Given Base URL is _ and input json body
       When Set method to POST, set path to registerBADFHABD, and click send button
       Then API should return response 404
-
-    Scenario: API POST REGISTER as USER with INVALID path should success then return the right message
-      Given Base URL is _ and input json body
-      When Set method to POST, set path to registerBADFHABD, and click send button
-      Then API should return body message "page not found"
+      And API should return body message "Not Found"
 
     Scenario: API POST REGISTER as USER with blank username should success then return 400 Bad Request response code
       Given Base URL is _ and input json body with empty username
@@ -28,47 +20,26 @@
       Then API should return response 400
       And API should return body message "bad request"
 
-    Scenario: API POST REGISTER as USER with blank username should success then return the right message
-      Given Base URL is _ and input json body with empty username
-      When Set method to POST, set path to register, and click send button
-      Then API should return body message "bad request"
-
     Scenario: API POST REGISTER as USER with blank fullname should success then return 400 Bad Request response code
       Given Base URL is _ and input json body with empty fullname
       When Set method to POST, set path to register, and click send button
       Then API should return response 400
-
-    Scenario: API POST REGISTER as USER with blank fullname should success then return the right message
-      Given Base URL is _ and input json body with empty fullname
-      When Set method to POST, set path to register, and click send button
-      Then API should return body message "bad request"
+      And API should return body message "bad request"
 
     Scenario: API POST REGISTER as USER with blank email should success then return 400 Bad Request response code
       Given Base URL is _ and input json body with email
       When Set method to POST, set path to register, and click send button
       Then API should return response 400
-
-    Scenario: API POST REGISTER as USER with blank email should success then return the right message
-      Given Base URL is _ and input json body with email
-      When Set method to POST, set path to register, and click send button
-      Then API should return body message "bad request"
+      And API should return body message "bad request"
 
     Scenario: API POST REGISTER as USER with blank password should success then return 400 Bad Request response code
       Given Base URL is _ and input json body with empty password
       When Set method to POST, set path to register, and click send button
       Then API should return response 400
-
-    Scenario: API POST REGISTER as USER with blank password should success then return the right message
-      Given Base URL is _ and input json body with empty password
-      When Set method to POST, set path to register, and click send button
-      Then API should return body message "bad request"
+      And API should return body message "bad request"
 
     Scenario: API POST REGISTER as USER with blank role should success then return 400 Bad Request response code
       Given Base URL is _ and input json body with empty role
       When Set method to POST, set path to register, and click send button
       Then API should return response 400
-
-    Scenario: API POST REGISTER as USER with blank role should success then return the right message
-      Given Base URL is _ and input json body with empty role
-      When Set method to POST, set path to register, and click send button
-      Then API should return body message "bad request"
+      And API should return body message "bad request"
