@@ -20,6 +20,14 @@ public class ImagesAPI {
                     .multiPart("camp_id",id)
                     .multiPart("images",image);
     }
+    @Step
+    public void setPostImagesWOCamp_id(String token, File image){
+        SerenityRest.given()
+                    .header("Authorization",
+                            "Bearer " + token)
+                    .contentType("multipart/form-data")
+                    .multiPart("images",image);
+    }
 
     @Step
     public void setDeleteImages(int id, String token){

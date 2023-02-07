@@ -25,7 +25,6 @@ public class AddImagesStepDef {
     public void baseURLIs_SetTokenToBearerTokenWithCamp_idAndInputJsonBodyAddImages(int id) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        System.out.println(token);
         File image = new File(Constant.IMAGE + "/download (1).jpg");
         imagesAPI.setPostImages(token, id, image);
     }
@@ -35,4 +34,11 @@ public class AddImagesStepDef {
         SerenityRest.when().post(ImagesAPI.POST_IMAGES);
     }
 
+    @Given("Base URL is _ , set token to bearer token with camp_id null and input json body add images")
+    public void baseURLIs_SetTokenToBearerTokenWithCamp_idNullAndInputJsonBodyAddImages() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File image = new File(Constant.IMAGE + "/download (1).jpg");
+        imagesAPI.setPostImagesWOCamp_id(token,image);
+    }
 }
