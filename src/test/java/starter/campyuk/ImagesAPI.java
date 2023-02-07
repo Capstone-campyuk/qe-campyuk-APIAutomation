@@ -30,10 +30,44 @@ public class ImagesAPI {
     }
 
     @Step
+    public void setPostImagesWStringCamp_id(String token, String id, File image){
+        SerenityRest.given()
+                .header("Authorization",
+                        "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("camp_id", id)
+                .multiPart("images",image);
+    }
+
+    @Step
+    public void setPostImagesWEImage(String token, int id) {
+        SerenityRest.given()
+                .header("Authorization",
+                        "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("camp_id", id)
+                .multiPart("images", "");
+    }
+
+    @Step
     public void setDeleteImages(int id, String token){
         SerenityRest.given().pathParams("id",id)
                     .header("Authorization",
                             "Bearer " + token);
+    }
+
+    @Step
+    public void setDeleteImagesWStringImage_id(String id, String token){
+        SerenityRest.given().pathParams("id",id)
+                .header("Authorization",
+                        "Bearer " + token);
+    }
+
+    @Step
+    public void setDeleteImagesWOParameter(String token){
+        SerenityRest.given().pathParams("id","")
+                .header("Authorization",
+                        "Bearer " + token);
     }
 
 
