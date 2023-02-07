@@ -3,7 +3,11 @@ package starter.campyuk;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import io.restassured.http.ContentType;
+
 import starter.campyuk.Utils.Constant;
+
+import java.io.File;
 
 public class ItemsAPI {
     public static String DATA_ITEMS = Constant.BASE_URL + "https://virtserver.swaggerhub.com/GRIFFINHENRY07_1/campyuk/1.0.0/users";
