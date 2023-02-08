@@ -25,7 +25,7 @@ public class AddImagesStepDef {
     public void baseURLIs_SetTokenToBearerTokenWithCamp_idAndInputJsonBodyAddImages(int id) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.IMAGE + "/download (1).jpg");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
         imagesAPI.setPostImages(token, id, image);
     }
 
@@ -37,7 +37,7 @@ public class AddImagesStepDef {
     @Given("Base URL is _ , set token to bearer token with invalid token, camp_id {int}, and input json body add images")
     public void baseURLIs_SetTokenToBearerTokenWithCamp_idInvalidTokenAndInputJsonBodyAddImages(int id) {
         String token = "nvjovbbfvbfdkgorbfcsdnfeseryy3orh32fhoy8cehuovsdl";
-        File image = new File(Constant.IMAGE + "/download (1).jpg");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
         imagesAPI.setPostImages(token, id, image);
     }
 
@@ -45,7 +45,7 @@ public class AddImagesStepDef {
     public void baseURLIs_SetTokenToBearerTokenWithCamp_idNullAndInputJsonBodyAddImages() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.IMAGE + "/download (1).jpg");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
         imagesAPI.setPostImagesWOCamp_id(token,image);
     }
 
@@ -53,7 +53,7 @@ public class AddImagesStepDef {
     public void baseURLIs_SetTokenToBearerTokenWithCamp_idAndInputJsonBodyAddImages(String id) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.IMAGE + "/download (1).jpg");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
         imagesAPI.setPostImagesWStringCamp_id(token,id,image);
     }
 

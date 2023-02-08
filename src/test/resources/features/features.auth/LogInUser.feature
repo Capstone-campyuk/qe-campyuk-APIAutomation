@@ -2,11 +2,20 @@
   Feature: Testing POST Login as User REST API
     As a user I want to log in to my account to access the website
 
-    Scenario: API POST LOGIN as USER with VALID path should success then return 200 Ok response code
-      Given Base URL is _ and input json body log in user
+    Scenario: API POST LOGIN as GUEST with VALID path should success then return 200 Ok response code
+      Given Base URL is _ and input json body log in guest
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
-      And API should return body email "alifa30@gmail.com"
+      And API should return body email "testingmuser1@gmail.com"
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
+
+    Scenario:  API POST LOGIN as HOST with VALID path should success then return 200 Ok response code
+      Given Base URL is _ and input json body log in host
+      When Set method to POST, Set path to login, and click send button
+      Then API should return response 200
+      And API should return body email "testingmhost1@gmail.com"
       And API should return body message "success login"
       And API should return body token is not null
       And API should return the right JSON Schema log in user
