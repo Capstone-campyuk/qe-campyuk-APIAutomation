@@ -74,4 +74,22 @@ public class RegisterUserStepDef {
         File json = new File(Constant.JSON_REQUEST+"/Auth/Register/RegisterWERole.json");
         authAPI.setPostRegister(json);
     }
+
+    @Given("Base URL is _ and input json body for put user")
+    public void baseURLIs_AndInputJsonBodyForPutUser() {
+        File json = new File(Constant.JSON_REQUEST+"/Auth/Register/RegisterPutUser.json");
+        authAPI.setPostRegister(json);
+    }
+
+    @Given("Base URL is _ and input json body for delete user")
+    public void baseURLIs_AndInputJsonBodyForDeleteUser() {
+        File json = new File(Constant.JSON_REQUEST+"/Auth/Register/RegisterDeleteUser.json");
+        authAPI.setPostRegister(json);
+    }
+
+    @Given("Base URL is _ and input json body for delete host")
+    public void baseURLIs_AndInputJsonBodyForDeleteHost() {
+        File json = new File(Constant.JSON_REQUEST+"/Auth/Register/RegisterDeleteHost.json");
+        authAPI.setPostRegister(json);
+    }
 }

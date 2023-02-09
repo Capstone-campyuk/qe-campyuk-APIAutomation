@@ -8,6 +8,18 @@
       Then API should return response 201
       And API should return body message "success create account"
 
+    Scenario: API POST REGISTER as USER for DELETE USER
+      Given Base URL is _ and input json body for delete user
+      When Set method to POST, set path to register, and click send button
+      Then API should return response 201
+      And API should return body message "success create account"
+
+    Scenario: API POST REGISTER as USER for DELETE HOST
+      Given Base URL is _ and input json body for delete host
+      When Set method to POST, set path to register, and click send button
+      Then API should return response 201
+      And API should return body message "success create account"
+
     Scenario: API POST REGISTER as USER with INVALID path should success then return 404 Not Found response code
       Given Base URL is _ and input json body
       When Set method to POST, set path to registerBADFHABD, and click send button
