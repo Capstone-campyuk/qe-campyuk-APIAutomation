@@ -1,27 +1,34 @@
 package starter.campyuk.ItemsStepDef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import starter.campyuk.ItemsAPI;
+import starter.campyuk.Utils.Constant;
+
+import java.io.File;
 
 public class GeneralItemsStepDef {
     @Steps
-    ItemsAPI itemsAPIAPI;
+    ItemsAPI itemsAPI;
 
 
-    //post
-//    @When("Send request Post Items")
-//    public void sendRequestPostItems() {
-//        SerenityRest.when().post(UserAPI.DATA_USER_WITH_ID);
-//    }
 
-//    @When("Send request Post Items with invalid id")
-//    public void sendRequestPostItemsWithInvalidPath() {
-//        SerenityRest.when().post(UserAPI.DATA_USER_WITH_ID);
-//    }
+    //Post
+    @When("Send request Post Items")
+    public void sendRequestPostItems() {
+        SerenityRest.when().post(ItemsAPI.DATA_ITEMS);
+    }
+
+    @When("Send request Post Items with invalid path")
+    public void sendRequestPostItemsWithInvalidPath() {
+        SerenityRest.when().post(ItemsAPI.DATA_ITEMS_PATH_INVALID);
+    }
+
 
 
     //delete
@@ -44,5 +51,7 @@ public class GeneralItemsStepDef {
     public void sendRequestDeleteItemsWithValidPath() {
         SerenityRest.when().delete(ItemsAPI.DATA_ITEMS);
     }
+
+
 }
 

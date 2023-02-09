@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "total_record": {
+          "type": "integer"
+        },
+        "total_pages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "page",
+        "limit",
+        "offset",
+        "total_record",
+        "total_pages"
+      ]
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "ticket": {
+              "type": "string"
+            },
+            "camp_title": {
+              "type": "string"
+            },
+            "camp_image": {
+              "type": "string"
+            },
+            "camp_address": {
+              "type": "string"
+            },
+            "camp_city": {
+              "type": "string"
+            },
+            "check_in": {
+              "type": "string"
+            },
+            "check_out": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "booking_date": {
+              "type": "string"
+            },
+            "total_price": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "ticket",
+            "camp_title",
+            "camp_image",
+            "camp_address",
+            "camp_city",
+            "check_in",
+            "check_out",
+            "status",
+            "booking_date",
+            "total_price"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "ticket": {
+              "type": "string"
+            },
+            "camp_title": {
+              "type": "string"
+            },
+            "camp_image": {
+              "type": "string"
+            },
+            "camp_address": {
+              "type": "string"
+            },
+            "camp_city": {
+              "type": "string"
+            },
+            "check_in": {
+              "type": "string"
+            },
+            "check_out": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "booking_date": {
+              "type": "string"
+            },
+            "total_price": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "ticket",
+            "camp_title",
+            "camp_image",
+            "camp_address",
+            "camp_city",
+            "check_in",
+            "check_out",
+            "status",
+            "booking_date",
+            "total_price"
+          ]
+        }
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "pagination",
+    "data",
+    "message"
+  ]
+}

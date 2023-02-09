@@ -22,21 +22,10 @@ public class DeleteUserStepDef {
 
 
     //scenario 2
-    @Given("Delete user with invalid path")
-    public void deleteUserWithInvalidPath() {
-        userAPI.deleteInvalidPath();
-    }
-
-
-    //scenario 3
-    @Given("Delete user with valid {int}")
-    public void deleteUserWithValidId(int id) {
-        userAPI.deleteWithId(id);
-    }
-
-    //scenario 4
-    @Given("Delete user with invalid {string}")
-    public void deleteUserWithInvalid(String id) {
-        userAPI.deleteWithInvalidId(id);
+    @Given("Delete user with invalid path and valid token")
+    public void deleteUserWithInvalidPathAndValidToken() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        userAPI.deleteInvalidPath(token);
     }
 }
