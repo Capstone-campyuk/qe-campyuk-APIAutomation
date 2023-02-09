@@ -15,7 +15,38 @@ public class CampsAPI {
     public static String DECLINE_CAMP = Constant.BASE_URL + "/camps/{id}/decline";
 
     @Step("Post add new camp")
-    public void setPostAddNewCamp(File json){
-        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    public void setPostAddNewCamp(String token, int price, String city, double latitude, double longitude, String address, int distance, String title, File image, File doc, String desc){
+        SerenityRest.given()
+                    .header("Authorization",
+                            "Bearer " + token)
+                    .contentType("multipart/form-data")
+                    .multiPart("title", title)
+                    .multiPart("price", price)
+                    .multiPart("description", desc)
+                    .multiPart("latitude", latitude)
+                    .multiPart("longitude", longitude)
+                    .multiPart("address", address)
+                    .multiPart("city", city)
+                    .multiPart("distance", distance)
+                    .multiPart("images", image)
+                    .multiPart("document", doc);
+    }
+
+    @Step("Post add new camp with empty latitude, longitude, and distance")
+    public void setPostAddNewCamp(String token, Integer price, String city, Double latitude, Double longitude, String address, Integer distance, String title, File image, File doc, String desc){
+        SerenityRest.given()
+                .header("Authorization",
+                        "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("title", title)
+                .multiPart("price", price)
+                .multiPart("description", desc)
+                .multiPart("latitude", latitude)
+                .multiPart("longitude", longitude)
+                .multiPart("address", address)
+                .multiPart("city", city)
+                .multiPart("distance", distance)
+                .multiPart("images", image)
+                .multiPart("document", doc);
     }
 }
