@@ -1,0 +1,26 @@
+{
+  "camp_id": 1,
+  "items": [
+    {
+      "item_id": 1,
+      "quantity": 2,
+      "rent_cost": 200000
+    },
+    {
+      "item_id": 2,
+      "quantity": 1,
+      "rent_cost": 200000
+    },
+    {
+      "item_id": 3,
+      "quantity": 1,
+      "rent_cost": 300000
+    }
+  ],
+  "camp_cost": 50000,
+  "total_price": 750000,
+  "check_in": "01-02-2023",
+  "check_out": "02-02-2023",
+  "guest": 2,
+  "bank": "bca"
+}

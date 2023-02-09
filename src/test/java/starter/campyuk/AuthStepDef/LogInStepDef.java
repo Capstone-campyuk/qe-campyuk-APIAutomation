@@ -52,7 +52,6 @@ public class LogInStepDef {
     public void apiShouldReturnTheRightJSONSchemaLogInUser() {
         File jsonSchema = new File(Constant.JSON_SCHEMA + "/AuthSchema/LogInSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
-
     }
 
     @Given("Base URL is _ and input json body log in user with empty username")

@@ -1,6 +1,10 @@
 package starter.campyuk.UserStepDef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.response.Response;
+import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.campyuk.UserAPI;
 import starter.campyuk.Utils.Constant;
@@ -13,48 +17,60 @@ public class PutUserStepDef {
 
 
     //scenario 1
-    @Given("Put user with blank name with {int}")
-    public void putUserWithBlankName(int id) {
-        File json = new File(Constant.JSON_REQUEST + "/RequestUsersBlankName.json");
-        userAPI.putWithid(id, json);
+    @Given("Put user with blank name and valid token")
+    public void putUserWithBlankNameAndValidToken() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File json = new File(Constant.JSON_REQUEST + "/User/RequestUsersBlankName.json");
+        userAPI.putValidPath(token, json);
     }
 
     //scenario 2
-    @Given("Put user with blank fullname with {int}")
-    public void putUserWithBlankFullname(int id) {
-        File json = new File(Constant.JSON_REQUEST + "/RequestUsersBlankFullName.json");
-        userAPI.putWithid(id, json);
+    @Given("Put user with blank fullname and valid token")
+    public void putUserWithBlankFullname() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File json = new File(Constant.JSON_REQUEST + "/User/RequestUsersBlankFullName.json");
+        userAPI.putValidPath(token, json);
     }
 
     //scenario 3
-    @Given("Put user with blank password with {int}")
-    public void putUserWithBlankPassword(int id) {
-        File json = new File(Constant.JSON_REQUEST + "/RequestUsersBlankPassword.json");
-        userAPI.putWithid(id, json);
+    @Given("Put user with blank password and valid token")
+    public void putUserWithBlankPassword() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File json = new File(Constant.JSON_REQUEST + "/User/RequestUsersBlankPassword.json");
+        userAPI.putValidPath(token, json);
     }
 
 
     //scenario 4
-    @Given("Put user with valid {int}")
-    public void putUserWithValidId(int id) {
-        File json = new File(Constant.JSON_REQUEST + "/RequestUsers.json");
-        userAPI.putWithid(id, json);
+    @Given("Put user with valid path and valid token")
+    public void putUserWithValidId() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File json = new File(Constant.JSON_REQUEST + "/User/RequestUsers.json");
+        userAPI.putValidPath(token, json);
     }
 
 
     //scenario 5
-    @Given("Put user with invalid {string}")
-    public void putUserWithInvalid(String id) {
-        File json = new File(Constant.JSON_REQUEST + "/RequestUsers.json");
-        userAPI.putWithInvalidid(id, json);
+    @Given("Put user with invalid path and valid token")
+    public void putUserWithInvalid() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File json = new File(Constant.JSON_REQUEST + "/User/RequestUsers.json");
+        userAPI.putInvalidPath(token, json);
     }
 
 
     //scenario 6
-    @Given("Put user with blank email with {int}")
-    public void putUserWithBlankEmailWithId(int id) {
-        File json = new File(Constant.JSON_REQUEST + "/RequestUsersBlankPassword.json");
-        userAPI.putWithid(id, json);
+    @Given("Put user with blank email and valid token")
+    public void putUserWithBlankEmailWithId() {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File json = new File(Constant.JSON_REQUEST + "/User/RequestUsersBlankPassword.json");
+        userAPI.putValidPath(token, json);
 
     }
 }

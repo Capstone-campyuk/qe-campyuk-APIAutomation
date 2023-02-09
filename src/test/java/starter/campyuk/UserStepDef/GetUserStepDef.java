@@ -1,10 +1,16 @@
 package starter.campyuk.UserStepDef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.campyuk.UserAPI;
+import starter.campyuk.Utils.Constant;
+
+import java.io.File;
 
 public class GetUserStepDef {
     @Steps
@@ -12,16 +18,19 @@ public class GetUserStepDef {
 
 
     //scenario 1
-    @Given("Get user with valid path")
+    @Given("Get user with valid path and valid token")
     public void getUserWithValidPath() {
-        userAPI.getValidPath();
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        userAPI.getValidPath(token);
     }
 
-
     //scenario 2
-    @Given("Get user with invalid path")
+    @Given("Get user with invalid path and valid token")
     public void getUserWithInvalidPath() {
-        userAPI.getUserWithInvalidPath();
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        userAPI.getUserWithInvalidPath(token);
     }
 
     @When("Send request Get Users invalid path")
@@ -29,19 +38,6 @@ public class GetUserStepDef {
         SerenityRest.when().get(UserAPI.PATH_INVALID);
     }
 
-
-    //scenario 3
-    @Given("Get user with valid {int}")
-    public void getUserWithValidId(int id) {
-        userAPI.getWithid(id);
-    }
-
-
-    //scenario 4
-    @Given("Get user with invalid {string}")
-    public void getUserWithInvalidId(String id) {
-        userAPI.getWithInvalidid(id);
-    }
 
 }
 
