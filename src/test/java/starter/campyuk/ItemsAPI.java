@@ -10,9 +10,9 @@ import starter.campyuk.Utils.Constant;
 import java.io.File;
 
 public class ItemsAPI {
-    public static String DATA_ITEMS = Constant.BASE_URL + "/users";
-    public static String DATA_ITEMS_WITH_ID = Constant.BASE_URL + "/users?id={id}";
-    public static String DATA_ITEMS_PATH_INVALID = Constant.BASE_URL + "/usersaJHFDF";
+    public static String DATA_ITEMS = Constant.BASE_URL + "/items";
+    public static String DATA_ITEMS_WITH_ID = Constant.BASE_URL + "/items?id={id}";
+    public static String DATA_ITEMS_PATH_INVALID = Constant.BASE_URL + "/itemsaJHFDF";
 
 
 

@@ -3,7 +3,7 @@ Feature: Testing PUT USERS REST API
 
   @Campyuk #scenario 1
   Scenario: API PUT USERS with blank name AS USER
-    Given Base URL is _ and input json body log in user
+    Given Base URL is _ and input json body log in guest
     When Set method to POST, Set path to login, and click send button
     Given Put user with blank name and valid token
     When Send request Put Users
@@ -13,7 +13,7 @@ Feature: Testing PUT USERS REST API
 
   @Campyuk #scenario 2
   Scenario Outline: API PUT USERS with blank fullname AS USER
-    Given Base URL is _ and input json body log in user
+    Given Base URL is _ and input json body log in guest
     When Set method to POST, Set path to login, and click send button
     Given Put user with blank fullname and valid token
     When Send request Put Users
