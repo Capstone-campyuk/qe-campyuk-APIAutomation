@@ -20,6 +20,41 @@
       And API should return body token is not null
       And API should return the right JSON Schema log in user
 
+    Scenario:  API POST LOGIN as GUEST for PUT UPDATE USER
+      Given Base URL is _ and input json body log in put guest
+      When Set method to POST, Set path to login, and click send button
+      Then API should return response 200
+      And API should return body email "testingputuser1@gmail.com"
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
+
+    Scenario:  API POST LOGIN as GUEST for PUT DELETE USER
+      Given Base URL is _ and input json body log in delete guest
+      When Set method to POST, Set path to login, and click send button
+      Then API should return response 200
+      And API should return body email "testingdeleteuser1@gmail.com"
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
+
+    Scenario:  API POST LOGIN as GUEST for PUT UPDATE HOST
+      Given Base URL is _ and input json body log in put host
+      When Set method to POST, Set path to login, and click send button
+      Then API should return response 200
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
+
+    Scenario:  API POST LOGIN as GUEST for PUT DELETE HOST
+      Given Base URL is _ and input json body log in delete host
+      When Set method to POST, Set path to login, and click send button
+      Then API should return response 200
+      And API should return body email "testingdeletehost1@gmail.com"
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
+
     Scenario: API POST LOGIN as USER with blank username should success then return 400 Bad Request response code
       Given Base URL is _ and input json body log in user with empty username
       When Set method to POST, Set path to login, and click send button

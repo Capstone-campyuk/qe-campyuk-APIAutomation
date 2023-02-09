@@ -70,4 +70,28 @@ public class LogInStepDef {
     public void setMethodToPOSTSetPathToLoginbkjgkhGYAndClickSendButton() {
         SerenityRest.when().post(AuthAPI.POST_LOGIN + "bkjgkhGY");
     }
+
+    @Given("Base URL is _ and input json body log in put guest")
+    public void baseURLIs_AndInputJsonBodyLogInPutGuest() {
+        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInPutUser.json");
+        authAPI.setPostLogin(json);
+    }
+
+    @Given("Base URL is _ and input json body log in delete guest")
+    public void baseURLIs_AndInputJsonBodyLogInDeleteGuest() {
+        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInDeleteUser.json");
+        authAPI.setPostLogin(json);
+    }
+
+    @Given("Base URL is _ and input json body log in put host")
+    public void baseURLIs_AndInputJsonBodyLogInPutHost() {
+        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInPutHost.json");
+        authAPI.setPostLogin(json);
+    }
+
+    @Given("Base URL is _ and input json body log in delete host")
+    public void baseURLIs_AndInputJsonBodyLogInDeleteHost() {
+        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInDeleteHost.json");
+        authAPI.setPostLogin(json);
+    }
 }
