@@ -15,7 +15,7 @@
       Given Base URL is _ and input json body log in host
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
-      And API should return body email "testingmhost1@gmail.com"
+      And API should return body email "testingmhost2@gmail.com"
       And API should return body message "success login"
       And API should return body token is not null
       And API should return the right JSON Schema log in user
@@ -24,12 +24,12 @@
       Given Base URL is _ and input json body log in put guest
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
-      And API should return body email "testingputuser1@gmail.com"
+      And API should return body email "testingputuser2@gmail.com"
       And API should return body message "success login"
       And API should return body token is not null
       And API should return the right JSON Schema log in user
 
-    Scenario:  API POST LOGIN as GUEST for PUT DELETE USER
+    Scenario:  API POST LOGIN as GUEST for DELETE USER
       Given Base URL is _ and input json body log in delete guest
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
@@ -46,7 +46,7 @@
       And API should return body token is not null
       And API should return the right JSON Schema log in user
 
-    Scenario:  API POST LOGIN as GUEST for PUT DELETE HOST
+    Scenario:  API POST LOGIN as GUEST for DELETE HOST
       Given Base URL is _ and input json body log in delete host
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
