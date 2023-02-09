@@ -2,7 +2,7 @@ Feature: Testing POST ITEMS REST API
 
   @Campyuk #scenario 1
   Scenario: API POST ADD NEW ITEM as HOST with VALID path and body
-    Given Base URL is _ and input json body log in user
+    Given Base URL is _ and input json body log in host
     When Set method to POST, Set path to login, and click send button
     Given Post items with valid path and body
     When Send request Post Items
@@ -12,7 +12,7 @@ Feature: Testing POST ITEMS REST API
 
   @Campyuk #scenario 2
   Scenario: API POST ADD NEW ITEM as HOST with INVALID path and body
-    Given Base URL is _ and input json body log in user
+    Given Base URL is _ and input json body log in host
     When Set method to POST, Set path to login, and click send button
     Given Post items with invalid path and body
     When Send request Post Items with invalid path

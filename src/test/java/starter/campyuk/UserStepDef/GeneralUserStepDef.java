@@ -31,7 +31,7 @@ public class GeneralUserStepDef {
 
     @And("API should return the right JSON Schema Users")
     public void apiShouldReturnTheRightJSONSchemaUsers() {
-        File jsonSchema = new File(Constant.JSON_SCHEMA + "/UserSchema/UsersSchemaUsers.json");
+        File jsonSchema = new File(Constant.JSON_SCHEMA + "/UserSchema/UserSchemaUsers.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
 
