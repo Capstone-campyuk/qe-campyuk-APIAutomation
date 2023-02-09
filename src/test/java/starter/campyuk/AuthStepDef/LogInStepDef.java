@@ -29,7 +29,7 @@ public class LogInStepDef {
 
     @Given("Base URL is _ and input json body log in host")
     public void baseURLIs_AndInputJsonBodyLogInHost() {
-        File json = new File(Constant.JSON_REQUEST + "/Auth/LogIn/LogInHost1.json");
+        File json = new File(Constant.JSON_REQUEST + "/Auth/LogIn/LogInHost2.json");
         authAPI.setPostLogin(json);
     }
 
@@ -73,7 +73,7 @@ public class LogInStepDef {
 
     @Given("Base URL is _ and input json body log in put guest")
     public void baseURLIs_AndInputJsonBodyLogInPutGuest() {
-        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInPutUser.json");
+        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInPutUser2.json");
         authAPI.setPostLogin(json);
     }
 
