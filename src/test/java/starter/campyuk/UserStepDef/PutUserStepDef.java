@@ -49,6 +49,7 @@ public class PutUserStepDef {
     public void putUserWithValidId() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
+        System.out.println(token);
         File json = new File(Constant.JSON_REQUEST + "/User/RequestUsers.json");
         userAPI.putValidPath(token, json);
     }
