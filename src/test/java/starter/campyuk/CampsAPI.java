@@ -176,4 +176,16 @@ public class CampsAPI {
         SerenityRest.given().queryParam("page",page);
     }
 
+    @Step("Get a camp with valid path")
+    public void setDetailCamp(int id,String token){
+        SerenityRest.given().pathParam("id",id)
+                    .header("Authorization",
+                            "Bearer " + token);
+    }
+
+    @Step("Get a camp without token")
+    public void setDetailCampWOToken(int id){
+        SerenityRest.given().pathParam("id", id);
+    }
+
 }

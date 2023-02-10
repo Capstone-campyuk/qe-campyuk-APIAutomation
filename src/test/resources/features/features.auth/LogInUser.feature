@@ -3,7 +3,7 @@
     As a user I want to log in to my account to access the website
 
     Scenario: API POST LOGIN as GUEST with VALID path should success then return 200 Ok response code
-      Given Base URL is _ and input json body log in guest
+      Given Base URL is _ and input json body log in "testingmuser1" as username and "test123" as password
       When Set method to POST, Set path to login, and click send button
       Then API should return response 200
       And API should return body email "testingmuser1@gmail.com"
