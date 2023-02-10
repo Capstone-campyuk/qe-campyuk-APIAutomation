@@ -63,5 +63,4 @@ public class AddImagesStepDef {
         String token = response.getBody().jsonPath().getString("token");
         imagesAPI.setPostImagesWEImage(token,id);
     }
-
 }

@@ -32,8 +32,26 @@ public class CampsAPI {
                     .multiPart("document", doc);
     }
 
-    @Step("Post add new camp with empty latitude, longitude, and distance")
-    public void setPostAddNewCamp(String token, Integer price, String city, Double latitude, Double longitude, String address, Integer distance, String title, File image, File doc, String desc){
+    @Step("Post add new camp with empty latitude")
+    public void setPostAddNewCampWithEmptyLatitude(String token, int price, String city, double longitude, String address, int distance, String title, File image, File doc, String desc){
+        SerenityRest.given()
+                    .header("Authorization",
+                            "Bearer " + token)
+                    .contentType("multipart/form-data")
+                    .multiPart("title", title)
+                    .multiPart("price", price)
+                    .multiPart("description", desc)
+                    .multiPart("latitude", "")
+                    .multiPart("longitude", longitude)
+                    .multiPart("address", address)
+                    .multiPart("city", city)
+                    .multiPart("distance", distance)
+                    .multiPart("images", image)
+                    .multiPart("document", doc);
+    }
+
+    @Step("Post add new camp with empty longitude")
+    public void setPostAddNewCampWithEmptyLongitude(String token, int price, String city, double latitude, String address, int distance, String title, File image, File doc, String desc){
         SerenityRest.given()
                 .header("Authorization",
                         "Bearer " + token)
@@ -42,7 +60,7 @@ public class CampsAPI {
                 .multiPart("price", price)
                 .multiPart("description", desc)
                 .multiPart("latitude", latitude)
-                .multiPart("longitude", longitude)
+                .multiPart("longitude", "")
                 .multiPart("address", address)
                 .multiPart("city", city)
                 .multiPart("distance", distance)

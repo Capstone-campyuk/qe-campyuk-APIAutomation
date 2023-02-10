@@ -19,9 +19,8 @@ public class AddNewCampStepDef {
     public void baseURLSetTokenToBearerTokenAndInputFormDataBodyPriceCityLatitudeLongitudeAddressDistanceTitleDescriptionImagesAndDocument(int price, String city, double latit, double longit, String address, int distance, String title, String desc) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.IMAGE + "\\download(1).jpg");
-        System.out.println(Constant.DOC + "\\SuratIzinUsaha.pdf");
-        File doc = new File(Constant.DOC + "\\SuratIzinUsaha.pdf");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
+        File doc = new File(Constant.DOC + "/SuratIzinUsaha.pdf");
         campsAPI.setPostAddNewCamp(token,price,city,latit,longit,address,distance,title,image,doc,desc);
     }
 
@@ -30,15 +29,22 @@ public class AddNewCampStepDef {
         SerenityRest.when().post(CampsAPI.DATA_CAMPS);
     }
 
-    @Given("Base URL, set token to bearer token, and input form-data body price {int}, city {string}, latitude null, longitude {double}, address {string}, distance {int}, title {string}, description {string}, images, and document")
-    public void baseURLSetTokenToBearerTokenAndInputFormDataBodyPriceCityLatitudeNullLongitudeAddressDistanceTitleDescriptionImagesAndDocument(Integer price, String city, Double longit, String address, Integer distance, String title, String desc) {
+
+    @Given("Base URL, set token to bearer token, and input form-data body price {int}, city {string}, longitude {double}, address {string}, distance {int}, title {string}, description {string}, empty latitude, images, and document")
+    public void baseURLSetTokenToBearerTokenAndInputFormDataBodyPricePriceCityCityLongitudeLongitudeAddressAddressDistanceDistanceTitleTitleDescriptionDescriptionEmptyLatitudeImagesAndDocument(int price, String city, double longit, String address, int distance, String title, String desc) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        System.out.println(token);
-        File image = new File(Constant.IMAGE + "\\download(1).jpg");
-        File doc = new File(Constant.DOC + "\\SuratIzinUsaha.pdf");
-        Double latit = null;
-        System.out.println(latit);
-        campsAPI.setPostAddNewCamp(token,price,city,latit,longit,address,distance,title,image,doc,desc);
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
+        File doc = new File(Constant.DOC + "/SuratIzinUsaha.pdf");
+        campsAPI.setPostAddNewCampWithEmptyLatitude(token,price,city,longit,address,distance,title,image,doc,desc);
+    }
+
+    @Given("Base URL, set token to bearer token, and input form-data body price {int}, city {string}, latitude {double}, address {string}, distance {int}, title {string}, description {string}, empty longitude, images, and document")
+    public void baseURLSetTokenToBearerTokenAndInputFormDataBodyPricePriceCityCityLatitudeLatitudeAddressAddressDistanceDistanceTitleTitleDescriptionDescriptionEmptyLongitudeImagesAndDocument(int price, String city, double latit, String address, int distance, String title, String desc) {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
+        File doc = new File(Constant.DOC + "/SuratIzinUsaha.pdf");
+        campsAPI.setPostAddNewCampWithEmptyLatitude(token,price,city,latit,address,distance,title,image,doc,desc);
     }
 }
