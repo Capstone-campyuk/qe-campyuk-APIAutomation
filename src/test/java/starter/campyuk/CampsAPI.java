@@ -32,6 +32,7 @@ public class CampsAPI {
                     .multiPart("document", doc);
     }
 
+
     @Step("Post add new camp with empty latitude")
     public void setPostAddNewCampWithEmptyLatitude(String token, int price, String city, double longitude, String address, int distance, String title, File image, File doc, String desc){
         SerenityRest.given()
@@ -104,24 +105,6 @@ public class CampsAPI {
                 .multiPart("document", "");
     }
 
-    @Step("Post add new camp with invalid data type")
-    public void setPostAddNewCampWithInvalidDataType(String token, Object price, Object city, Object latitude, Object longitude, Object address, Object distance, Object title, File image, File doc, Object desc) {
-        SerenityRest.given()
-                .header("Authorization",
-                        "Bearer " + token)
-                .contentType("multipart/form-data")
-                .multiPart("title", title)
-                .multiPart("price", price)
-                .multiPart("description", desc)
-                .multiPart("latitude", latitude)
-                .multiPart("longitude", longitude)
-                .multiPart("address", address)
-                .multiPart("city", city)
-                .multiPart("distance", distance)
-                .multiPart("images", image)
-                .multiPart("document", doc);
-    }
-
     @Step("Post add new camp with empty distance")
     public void setPostAddNewCampWithEmptyDistance(String token, int price, String city, double latitude, double longitude, String address, String title, File image, File doc, String desc){
         SerenityRest.given()
@@ -139,4 +122,41 @@ public class CampsAPI {
                 .multiPart("images", image)
                 .multiPart("document", doc);
     }
+
+    @Step("Post add new camp with empty price")
+    public void setPostAddNewCampWithEmptyPrice(String token, String city, double latitude, double longitude, String address, int distance, String title, File image, File doc, String desc){
+        SerenityRest.given()
+                .header("Authorization",
+                        "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("title", title)
+                .multiPart("price", "")
+                .multiPart("description", desc)
+                .multiPart("latitude", latitude)
+                .multiPart("longitude", longitude)
+                .multiPart("address", address)
+                .multiPart("city", city)
+                .multiPart("distance", distance)
+                .multiPart("images", image)
+                .multiPart("document", doc);
+    }
+
+    @Step("Post add new camp with invalid data type")
+    public void setPostAddNewCampWithInvalidDataType(String token, Object price, Object city, Object latitude, Object longitude, Object address, Object distance, Object title, File image, File doc, Object desc){
+        SerenityRest.given()
+                .header("Authorization",
+                        "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("title", title)
+                .multiPart("price", price)
+                .multiPart("description", desc)
+                .multiPart("latitude", latitude)
+                .multiPart("longitude", longitude)
+                .multiPart("address", address)
+                .multiPart("city", city)
+                .multiPart("distance", distance)
+                .multiPart("images", image)
+                .multiPart("document", doc);
+    }
+
 }

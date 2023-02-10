@@ -114,3 +114,15 @@
       Given Base URL, set token to bearer token, and input form-data body with valid price <price>, city <city>, latitude <latitude>, longitude <longitude>, address <address>, distance <distance>, title <title>, description <description>, image, but invalid document
       When Set method to POST, Set path to camps, and click send button
       Then API should return response 400
+    Examples:
+      | price | city    | latitude   | longitude    | address                                                                                    | distance | title                  | description                                                                   |
+      | 20000 | "Bogor" | 6.52072222 | 106.82477778 | "Jalan Bumi Cimandala Permai, Cimandala, Kec. Sukaraja, Kabupaten Bogor, Jawa Barat 16710" | 10       | "Cimandala Scout Camp" | "Tempat Kemah Pramuka. Lapangan luas dan aman. Tersedia aula dan tempat MCK." |
+
+    Scenario Outline: API POST as HOST ADD NEW CAMP with INVALID TOKEN should return response code 401 Unauthorized
+      Given Base URL, set token to bearer token with invalid token, and input form-data body price <price>, city <city>, latitude <latitude>, longitude <longitude>, address <address>, distance <distance>, title <title>, description <description>, images, and document
+      When Set method to POST, Set path to camps, and click send button
+      Then API should return response 201
+      Then API should return body message "success add new camp"
+    Examples:
+      | price | city    | latitude   | longitude    | address                                                                                    | distance | title                  | description                                                                   |
+      | 20000 | "Bogor" | 6.52072222 | 106.82477778 | "Jalan Bumi Cimandala Permai, Cimandala, Kec. Sukaraja, Kabupaten Bogor, Jawa Barat 16710" | 10       | "Cimandala Scout Camp" | "Tempat Kemah Pramuka. Lapangan luas dan aman. Tersedia aula dan tempat MCK." |

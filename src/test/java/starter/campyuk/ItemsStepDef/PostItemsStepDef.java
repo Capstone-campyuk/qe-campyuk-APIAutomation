@@ -27,6 +27,7 @@ public class PostItemsStepDef {
     public void postItemsWithValidPathAndBody() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
+        System.out.println(token);
         File json = new File(Constant.JSON_REQUEST + "/Items/RequestItems.json");
         itemsAPI.postItemsValidPath(token, json);
     }

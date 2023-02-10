@@ -2,7 +2,7 @@ Feature: Testing DELETE ITEMS REST API
 
   @Campyuk #scenario 1
   Scenario Outline: API DELETE ITEMS as HOST with VALID path and VALID ID
-    Given Base URL is _ and input json body log in user
+    Given Base URL is _ and input json body log in host
     When Set method to POST, Set path to login, and click send button
     Given Delete items with Valid path, valid <id> and valid token
     When Send request Delete items valid id
