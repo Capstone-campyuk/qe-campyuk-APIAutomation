@@ -20,6 +20,15 @@
       And API should return body token is not null
       And API should return the right JSON Schema log in user
 
+    Scenario: API POST LOGIN as ADMIN with VALID path should success then return 200 Ok response code
+      Given Base URL is _ and input json body log in admin
+      When Set method to POST, Set path to login, and click send button
+      Then API should return response 200
+      And API should return body email "admin@campyuk.com"
+      And API should return body message "success login"
+      And API should return body token is not null
+      And API should return the right JSON Schema log in user
+
     Scenario:  API POST LOGIN as GUEST for PUT UPDATE USER
       Given Base URL is _ and input json body log in put guest
       When Set method to POST, Set path to login, and click send button

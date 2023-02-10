@@ -1,0 +1,67 @@
+@Campyuk
+  Feature: Testing GET all list camps
+    As a user I want to get list all camps on the website
+
+    Scenario Outline: API GET LIST ALL CAMPS as USER with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and set <page> as parameter page
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return response 200
+      And API should return body page <page>
+      And API should return body message "success show list camp"
+    Examples:
+      | page |
+      | 1    |
+      | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as GUEST with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and input json body log in guest
+      When Set method to POST, Set path to login, and click send button
+      Given Base URL is _ and set <page> as parameter page as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return response 200
+      And API should return body page <page>
+      And API should return body message "success show list camp"
+    Examples:
+      | page |
+      | 1    |
+      | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as HOST with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and input json body log in host
+      When Set method to POST, Set path to login, and click send button
+      Given Base URL is _ and set <page> as parameter page as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return response 200
+      And API should return body page <page>
+      And API should return body message "success show list camp"
+    Examples:
+      | page |
+      | 1    |
+      | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and input json body log in admin
+      When Set method to POST, Set path to login, and click send button
+      Given Base URL is _ and set <page> as parameter page as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return response 200
+      And API should return body page <page>
+      And API should return body verification_status "PENDING"
+      And API should return body message "success show list camp"
+    Examples:
+      | page |
+      | 1    |
+      | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with INVALID PARAMETER should return response code 404 Not Found
+      Given Base URL is _ and set <page> as invalid parameter page
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return response 404
+      And API should return body message "not found"
+    Examples:
+      | page |
+      | 30   |
+      | 74   |
+      | z    |
+      | ndje |
+

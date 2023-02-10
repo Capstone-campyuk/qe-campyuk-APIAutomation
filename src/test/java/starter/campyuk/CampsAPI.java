@@ -159,4 +159,21 @@ public class CampsAPI {
                 .multiPart("document", doc);
     }
 
+    @Step("Get list all camps")
+    public void setGetListAllCamps(int page){
+        SerenityRest.given().queryParam("page",page);
+    }
+
+    @Step("Get list all camps as logged in user")
+    public void setGetListAllCampsAsLoggedInUser(int page, String token){
+        SerenityRest.given().queryParam("page",page)
+                    .header("Authorization",
+                            "Bearer " + token);
+    }
+
+    @Step("Get list all camps with object page")
+    public void setGetListAllCampsWithObjectPage(Object page){
+        SerenityRest.given().queryParam("page",page);
+    }
+
 }

@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import net.minidev.json.JSONObject;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.campyuk.AuthAPI;
@@ -93,5 +94,13 @@ public class LogInStepDef {
     public void baseURLIs_AndInputJsonBodyLogInDeleteHost() {
         File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInDeleteHost.json");
         authAPI.setPostLogin(json);
+    }
+
+    @Given("Base URL is _ and input json body log in admin")
+    public void baseURLIs_AndInputJsonBodyLogInAdmin() {
+        JSONObject bodyJson = new JSONObject();
+        bodyJson.put("username", "admin");
+        bodyJson.put("password", "admin");
+        authAPI.setPostLogInWithJsonObject(bodyJson.toJSONString());
     }
 }
