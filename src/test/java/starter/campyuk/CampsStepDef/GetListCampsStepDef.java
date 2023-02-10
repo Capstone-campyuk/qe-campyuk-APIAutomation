@@ -15,7 +15,7 @@ public class GetListCampsStepDef {
     @Steps
     CampsAPI campsAPI;
 
-    @Given("Base URL is _ and set {int} as parameter page")
+    @Given("Base URL is _ and set {int} as parameter page camps")
     public void baseURLIs_AndSetAsParameterPage(int page) {
         campsAPI.setGetListAllCamps(page);
     }
@@ -30,14 +30,14 @@ public class GetListCampsStepDef {
         SerenityRest.then().body(CampyukResponse.PAGE,equalTo(page));
     }
 
-    @Given("Base URL is _ and set {int} as parameter page as logged in user")
+    @Given("Base URL is _ and set {int} as parameter page camps as logged in user")
     public void baseURLIs_AndSetPageAsParameterPageAsLoggedInUser(int page) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString(CampyukResponse.TOKEN);
         campsAPI.setGetListAllCampsAsLoggedInUser(page,token);
     }
 
-    @Given("Base URL is _ and set {} as invalid parameter page")
+    @Given("Base URL is _ and set {} as invalid parameter page camps")
     public void baseURLIs_AndSetPageAsInvalidParameterPage(Object page) {
         campsAPI.setGetListAllCampsWithObjectPage(page);
     }
@@ -46,4 +46,5 @@ public class GetListCampsStepDef {
     public void apiShouldReturnBodyVerification_status(String status) {
         SerenityRest.then().body(CampyukResponse.VERIFICATION_STATUS,equalTo(status));
     }
+
 }

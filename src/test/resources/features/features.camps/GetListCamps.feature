@@ -3,7 +3,7 @@
     As a user I want to get list all camps on the website
 
     Scenario Outline: API GET LIST ALL CAMPS as USER with VALID PATH AND PARAMETER should return response code 200 OK
-      Given Base URL is _ and set <page> as parameter page
+      Given Base URL is _ and set <page> as parameter page camps
       When Set method to GET, Set path to camps, and click send button
       Then API should return response 200
       And API should return body page <page>
@@ -14,9 +14,9 @@
       | 2    |
 
     Scenario Outline:  API GET LIST ALL CAMPS as GUEST with VALID PATH AND PARAMETER should return response code 200 OK
-      Given Base URL is _ and input json body log in guest
+      Given Base URL is _ and input json body log in "testingmuser1" as username and "test123" as password
       When Set method to POST, Set path to login, and click send button
-      Given Base URL is _ and set <page> as parameter page as logged in user
+      Given Base URL is _ and set <page> as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
       Then API should return response 200
       And API should return body page <page>
@@ -29,7 +29,7 @@
     Scenario Outline:  API GET LIST ALL CAMPS as HOST with VALID PATH AND PARAMETER should return response code 200 OK
       Given Base URL is _ and input json body log in host
       When Set method to POST, Set path to login, and click send button
-      Given Base URL is _ and set <page> as parameter page as logged in user
+      Given Base URL is _ and set <page> as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
       Then API should return response 200
       And API should return body page <page>
@@ -42,7 +42,7 @@
     Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with VALID PATH AND PARAMETER should return response code 200 OK
       Given Base URL is _ and input json body log in admin
       When Set method to POST, Set path to login, and click send button
-      Given Base URL is _ and set <page> as parameter page as logged in user
+      Given Base URL is _ and set <page> as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
       Then API should return response 200
       And API should return body page <page>
@@ -54,7 +54,7 @@
       | 2    |
 
     Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with INVALID PARAMETER should return response code 404 Not Found
-      Given Base URL is _ and set <page> as invalid parameter page
+      Given Base URL is _ and set <page> as invalid parameter page camps
       When Set method to GET, Set path to camps, and click send button
       Then API should return response 404
       And API should return body message "not found"

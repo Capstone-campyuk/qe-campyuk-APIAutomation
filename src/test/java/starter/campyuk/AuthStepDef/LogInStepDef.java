@@ -22,10 +22,12 @@ public class LogInStepDef {
     @Steps
     AuthAPI authAPI;
 
-    @Given("Base URL is _ and input json body log in guest")
-    public void baseURLIs_AndInputJsonBodyLogInUser() {
-        File json = new File(Constant.JSON_REQUEST + "/Auth/LogIn/LogInGuest1.json");
-        authAPI.setPostLogin(json);
+    @Given("Base URL is _ and input json body log in {string} as username and {string} as password")
+    public void baseURLIs_AndInputJsonBodyLogInUser(String username,String password) {
+        JSONObject bodyJson = new JSONObject();
+        bodyJson.put("username", username);
+        bodyJson.put("password", password);
+        authAPI.setPostLogInWithJsonObject(bodyJson.toJSONString());
     }
 
     @Given("Base URL is _ and input json body log in host")
