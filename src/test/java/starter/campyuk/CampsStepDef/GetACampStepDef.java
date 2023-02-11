@@ -15,6 +15,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class GetACampStepDef {
     @Steps
     CampsAPI campsAPI;
+    private static int id;
 
     @Given("Base URL is _ and set {int} as valid path camp")
     public void baseURLIs_AndSetAsValidPathCamp(int id) {
@@ -28,12 +29,10 @@ public class GetACampStepDef {
         SerenityRest.when().get(CampsAPI.DETAIL_CAMP);
     }
 
-    public static int id;
-
     @Given("Base URL is _ and set id as valid path camp")
     public void baseURLIs_AndSetIdAsValidPathCamp() {
         Response response = SerenityRest.lastResponse();
-        id = response.getBody().jsonPath().getInt("data[0].id");
+        id = response.getBody().jsonPath().getInt("data[1].id");
         System.out.println(id);
         campsAPI.setDetailCampWOToken(id);
     }
@@ -41,5 +40,10 @@ public class GetACampStepDef {
     @And("API should return body id")
     public void apiShouldReturnBodyId() {
         SerenityRest.then().body(CampyukResponse.CAMP_ID,equalTo(id));
+    }
+
+    @Given("Base URL is _ and set invalid path camp {}")
+    public void baseURLIs_AndSetInvalidPathCamp(Object id) {
+        campsAPI.setDetailCampWInvalidPath(id);
     }
 }
