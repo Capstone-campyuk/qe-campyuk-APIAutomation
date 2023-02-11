@@ -188,4 +188,9 @@ public class CampsAPI {
         SerenityRest.given().pathParam("id", id);
     }
 
+    @Step("Get a camp with invalid path")
+    public void setDetailCampWInvalidPath(Object id){
+        SerenityRest.given().pathParam("id",id);
+    }
+
 }

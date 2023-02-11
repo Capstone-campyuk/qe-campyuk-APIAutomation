@@ -9,5 +9,5 @@ public class CampyukResponse {
     public static String MESSAGE = "message";
     public static String TOKEN = "token";
     public static String PAGE = "pagination.page";
-    public static String VERIFICATION_STATUS = "data[0].verification_status";
+    public static String VERIFICATION_STATUS = "data.verification_status";
 }

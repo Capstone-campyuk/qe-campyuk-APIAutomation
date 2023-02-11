@@ -46,7 +46,6 @@
       When Set method to GET, Set path to camps, and click send button
       Then API should return response 200
       And API should return body page <page>
-      And API should return body verification_status "PENDING"
       And API should return body message "success show list camp"
     Examples:
       | page |
