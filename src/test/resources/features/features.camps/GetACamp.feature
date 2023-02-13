@@ -5,7 +5,7 @@
     Scenario: API GET A CAMP as USER with VALID PATH should return response code 200 OK
       Given Base URL is _ and set 1 as parameter page camps
       When Set method to GET, Set path to camps, and click send button
-      Given Base URL is _ and set id as valid path camp
+      Given Base URL is _ and set "2" as jsonPath camp
       When Set method to GET, Set path to detail camp, and click send button
       Then Should return status code 200
       And API should return body id
@@ -16,18 +16,18 @@
       When Set method to POST, Set path to login, and click send button
       Given Base URL is _ and set 1 as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
-      Given Base URL is _ and set id as valid path camp
+      Given Base URL is _ and set "2" as jsonPath camp
       When Set method to GET, Set path to detail camp, and click send button
       Then Should return status code 200
       And API should return body id
       And API should return body message "success show detail camp"
 
     Scenario: API GET A CAMP as HOST with VALID PATH should return response code 200 OK
-      Given Base URL is _ and input json body log in "testingmhost2" as username and "testh123" as password
+      Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
       When Set method to POST, Set path to login, and click send button
       Given Base URL is _ and set 1 as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
-      Given Base URL is _ and set id as valid path camp
+      Given Base URL is _ and set "2" as jsonPath camp
       When Set method to GET, Set path to detail camp, and click send button
       Then Should return status code 200
       And API should return body id
@@ -38,22 +38,11 @@
       When Set method to POST, Set path to login, and click send button
       Given Base URL is _ and set 1 as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
-      Given Base URL is _ and set id as valid path camp
+      Given Base URL is _ and set "2" as jsonPath camp
       When Set method to GET, Set path to detail camp, and click send button
       Then Should return status code 200
       And API should return body id
       And API should return body verification_status "PENDING"
-      And API should return body message "success show detail camp"
-
-    Scenario: API GET A CAMP as GUEST with VALID PATH should return response code 404 Not Found
-      Given Base URL is _ and input json body log in "testingmuser1" as username and "test123" as password
-      When Set method to POST, Set path to login, and click send button
-      Given Base URL is _ and set 1 as parameter page camps as logged in user
-      When Set method to GET, Set path to camps, and click send button
-      Given Base URL is _ and set id as valid path camp
-      When Set method to GET, Set path to detail camp, and click send button
-      Then Should return status code 200
-      And API should return body id
       And API should return body message "success show detail camp"
 
     Scenario Outline: API GET A CAMP as USER with INVALID PATH should return response code 404 Not Found

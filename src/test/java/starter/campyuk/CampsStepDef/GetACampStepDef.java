@@ -14,26 +14,19 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class GetACampStepDef {
     @Steps
-    CampsAPI campsAPI;
-    private static int id;
+    CampsAPI campsAPI = new CampsAPI();
 
-    @Given("Base URL is _ and set {int} as valid path camp")
-    public void baseURLIs_AndSetAsValidPathCamp(int id) {
-        Response response = SerenityRest.lastResponse();
-        String token = response.getBody().jsonPath().getString(CampyukResponse.TOKEN);
-        campsAPI.setDetailCamp(id,token);
-    }
+    private static int id;
 
     @When("Set method to GET, Set path to detail camp, and click send button")
     public void setMethodToGETSetPathToDetailCampAndClickSendButton() {
         SerenityRest.when().get(CampsAPI.DETAIL_CAMP);
     }
 
-    @Given("Base URL is _ and set id as valid path camp")
-    public void baseURLIs_AndSetIdAsValidPathCamp() {
+    @Given("Base URL is _ and set {string} as jsonPath camp")
+    public void baseURLIs_AndSetIdAsValidPathCamp(String jsonPath) {
         Response response = SerenityRest.lastResponse();
-        id = response.getBody().jsonPath().getInt("data[1].id");
-        System.out.println(id);
+        id = response.getBody().jsonPath().getInt("data["+jsonPath+"].id");
         campsAPI.setDetailCampWOToken(id);
     }
 
@@ -46,4 +39,5 @@ public class GetACampStepDef {
     public void baseURLIs_AndSetInvalidPathCamp(Object id) {
         campsAPI.setDetailCampWInvalidPath(id);
     }
+
 }
