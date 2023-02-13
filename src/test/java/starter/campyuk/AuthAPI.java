@@ -29,4 +29,11 @@ public class AuthAPI {
     public void setPostLogInWithJsonObject(String json){
         SerenityRest.given().contentType(ContentType.JSON).body(json).log().all();
     }
+
+    @Step("Post register witj json object")
+    public void setPostRegisterWJsonObject(String json){
+        SerenityRest.given()
+                    .contentType(ContentType.JSON)
+                    .body(json).log().all();
+    }
 }
