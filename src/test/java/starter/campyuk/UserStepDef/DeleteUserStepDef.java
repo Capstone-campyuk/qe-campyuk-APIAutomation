@@ -28,4 +28,5 @@ public class DeleteUserStepDef {
         String token = response.getBody().jsonPath().getString("token");
         userAPI.deleteInvalidPath(token);
     }
+
 }
