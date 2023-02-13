@@ -247,4 +247,12 @@ public class CampsAPI {
                             "Bearer " + token);
     }
 
+    @Step("Put decline a camp request")
+    public void setDeclineCamp(String token, Object camp_id){
+        SerenityRest.given()
+                    .pathParam("id", camp_id)
+                    .header("Authorization",
+                            "Bearer " + token);
+    }
+
 }
