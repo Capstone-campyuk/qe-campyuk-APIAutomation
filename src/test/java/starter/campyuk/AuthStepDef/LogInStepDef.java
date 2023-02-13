@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import net.minidev.json.JSONObject;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
@@ -20,7 +21,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class LogInStepDef {
     @Steps
-    AuthAPI authAPI;
+    AuthAPI authAPI = new AuthAPI();
 
     @Given("Base URL is _ and input json body log in {string} as username and {string} as password")
     public void baseURLIs_AndInputJsonBodyLogInUser(String username,String password) {
@@ -48,7 +49,7 @@ public class LogInStepDef {
 
     @And("API should return body token is not null")
     public void apiShouldReturnBodyTokenNotNull() {
-        SerenityRest.then().body(CampyukResponse.TOKEN,notNullValue());
+        SerenityRest.then().body(CampyukResponse.TOKEN, notNullValue());
     }
 
     @And("API should return the right JSON Schema log in user")

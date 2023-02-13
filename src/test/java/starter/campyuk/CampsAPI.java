@@ -1,6 +1,7 @@
 package starter.campyuk;
 
 
+import io.cucumber.java.eo.Se;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
@@ -191,6 +192,43 @@ public class CampsAPI {
     @Step("Get a camp with invalid path")
     public void setDetailCampWInvalidPath(Object id){
         SerenityRest.given().pathParam("id",id);
+    }
+
+
+    @Step("Put update a camp with valid path")
+    public void setPutUpdateACamp(String token, Object camp_id, Object price, Object city, Object latitude, Object longitude, Object address, Object distance, Object title, File doc, Object desc){
+        SerenityRest.given()
+                    .pathParam("id", camp_id)
+                    .header("Authorization",
+                            "Bearer " + token)
+                    .contentType("multipart/form-data")
+                    .multiPart("price", price)
+                    .multiPart("city", city)
+                    .multiPart("latitude", latitude)
+                    .multiPart("longitude", longitude)
+                    .multiPart("address", address)
+                    .multiPart("distance", distance)
+                    .multiPart("title", title)
+                    .multiPart("document", doc)
+                    .multiPart("description", desc);
+    }
+
+    @Step("Put update a camp with empty document")
+    public void setPutUpdateACampWEmptyDoc(String token, Object camp_id, Object price, Object city, Object latitude, Object longitude, Object address, Object distance, Object title, Object desc){
+        SerenityRest.given()
+                .pathParam("id", camp_id)
+                .header("Authorization",
+                        "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("price", price)
+                .multiPart("city", city)
+                .multiPart("latitude", latitude)
+                .multiPart("longitude", longitude)
+                .multiPart("address", address)
+                .multiPart("distance", distance)
+                .multiPart("title", title)
+                .multiPart("document", "")
+                .multiPart("description", desc);
     }
 
 }

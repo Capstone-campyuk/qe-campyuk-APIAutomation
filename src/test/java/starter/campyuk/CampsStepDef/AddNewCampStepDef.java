@@ -94,7 +94,7 @@ public class AddNewCampStepDef {
     public void baseURLSetTokenToBearerTokenAndInputFormDataBodyWithValidPricePriceCityCityLatitudeLatitudeLongitudeLongitudeAddressAddressDistanceDistanceTitleTitleDescriptionDescriptionImageButInvalidDocument(int price, String city, double latit, double longit, String address, int distance, String title, String desc) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.DOC + "/Image.txt");
+        File image = new File(Constant.DOC + "/download(1).jpg");
         File doc = new File(Constant.DOC + "/SuratIzinUsaha.txt");
         campsAPI.setPostAddNewCamp(token,price,city,latit,longit,address,distance,title,image,doc,desc);
     }
@@ -105,5 +105,14 @@ public class AddNewCampStepDef {
         File image = new File(Constant.IMAGE + "/download(1).jpg");
         File doc = new File(Constant.DOC + "/SuratIzinUsaha.pdf");
         campsAPI.setPostAddNewCamp(token,price,city,latit,longit,address,distance,title,image,doc,desc);
+    }
+
+    @Given("Base URL, set token to bearer token, and input form-data body empty price, city {string}, latitude {double}, longitude {double}, address {string}, distance {int}, title {string}, description {string}, images, and document")
+    public void baseURLSetTokenToBearerTokenAndInputFormDataBodyEmptyPriceCityCityLatitudeLatitudeLongitudeLongitudeAddressAddressDistanceDistanceTitleTitleDescriptionDescriptionEmptyImagesAndDocument(String city, double latit, double longit, String address, int distance, String title, String desc) {
+        Response response = SerenityRest.lastResponse();
+        String token = response.getBody().jsonPath().getString("token");
+        File image = new File(Constant.IMAGE + "/download(1).jpg");
+        File doc = new File(Constant.DOC + "/SuratIzinUsaha.pdf");
+        campsAPI.setPostAddNewCampWithEmptyPrice(token,city,latit,longit,address,distance,title,image,doc,desc);
     }
 }
