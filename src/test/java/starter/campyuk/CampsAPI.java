@@ -231,4 +231,12 @@ public class CampsAPI {
                 .multiPart("description", desc);
     }
 
+    @Step("Delete a camp")
+    public void setDeleteACamp(String token, Object camp_id){
+        SerenityRest.given()
+                    .pathParam("id", camp_id)
+                    .header("Authorization",
+                            "Bearer " + token);
+    }
+
 }
