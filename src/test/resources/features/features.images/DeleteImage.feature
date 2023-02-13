@@ -1,4 +1,4 @@
-@Campyuk
+@Alifa
   Feature: Testing DELETE image as host
     As a host I want to delete an image of my camp site
 

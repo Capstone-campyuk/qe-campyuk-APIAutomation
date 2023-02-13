@@ -1,4 +1,4 @@
-@Campyuk
+@Alifa
   Feature: Testing PUT UPDATE A CAMP as HOST
     As a host I want update my camp in the website
 
