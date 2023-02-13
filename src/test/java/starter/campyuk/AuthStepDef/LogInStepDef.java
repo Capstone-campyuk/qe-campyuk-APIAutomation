@@ -58,18 +58,6 @@ public class LogInStepDef {
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
 
-    @Given("Base URL is _ and input json body log in user with empty username")
-    public void baseURLIs_AndInputJsonBodyLogInUserWithEmptyUsername() {
-        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInWEUsername.json");
-        authAPI.setPostLogin(json);
-    }
-
-    @Given("Base URL is _ and input json body log in user with empty password")
-    public void baseURLIs_AndInputJsonBodyLogInUserWithEmptyPassword() {
-        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInWEPassword.json");
-        authAPI.setPostLogin(json);
-    }
-
     @When("Set method to POST, Set path to loginbkjgkhGY, and click send button")
     public void setMethodToPOSTSetPathToLoginbkjgkhGYAndClickSendButton() {
         SerenityRest.when().post(AuthAPI.POST_LOGIN + "bkjgkhGY");
@@ -90,12 +78,6 @@ public class LogInStepDef {
     @Given("Base URL is _ and input json body log in put host")
     public void baseURLIs_AndInputJsonBodyLogInPutHost() {
         File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInPutHost.json");
-        authAPI.setPostLogin(json);
-    }
-
-    @Given("Base URL is _ and input json body log in delete host")
-    public void baseURLIs_AndInputJsonBodyLogInDeleteHost() {
-        File json = new File(Constant.JSON_REQUEST + "/auth/LogIn/LogInDeleteHost.json");
         authAPI.setPostLogin(json);
     }
 
