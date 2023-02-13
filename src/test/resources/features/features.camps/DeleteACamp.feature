@@ -32,7 +32,7 @@
       Then API should return response 401
       And API should return body message "invalid or expired jwt"
 
-    Scenario: API DELETE A CAMP as HOST with VALID PATH, PARAMETER, AND TOKEN should return 204 No Content
+    Scenario: API DELETE A CAMP as HOST with EMPTY PARAMETER should return 204 No Content
       Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
       When Set method to POST, Set path to login, and click send button
       And Set token to a method in delete camp
