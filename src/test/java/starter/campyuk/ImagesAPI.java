@@ -11,46 +11,28 @@ public class ImagesAPI {
     public static String POST_IMAGES = Constant.BASE_URL + "/images";
     public static String DELETE_IMAGES = Constant.BASE_URL + "/images/{id}";
 
-    @Step
-    public void setPostImages(String token, int id, File image){
+    @Step("Post add an image")
+    public void setPostImages(String token, Object id, File image){
         SerenityRest.given()
                     .header("Authorization",
                             "Bearer " + token)
                     .contentType("multipart/form-data")
                     .multiPart("camp_id",id)
-                    .multiPart("images",image);
+                    .multiPart("image",image);
     }
-    @Step
-    public void setPostImagesWOCamp_id(String token, File image){
+
+    @Step("Post add an image with empty image")
+    public void setPostImagesWEmptyImage(String token, Object id){
         SerenityRest.given()
                     .header("Authorization",
                             "Bearer " + token)
                     .contentType("multipart/form-data")
-                    .multiPart("images",image);
+                    .multiPart("camp_id", id)
+                    .multiPart("image", "[]");
     }
 
     @Step
-    public void setPostImagesWStringCamp_id(String token, String id, File image){
-        SerenityRest.given()
-                .header("Authorization",
-                        "Bearer " + token)
-                .contentType("multipart/form-data")
-                .multiPart("camp_id", id)
-                .multiPart("images",image);
-    }
-
-    @Step
-    public void setPostImagesWEImage(String token, int id) {
-        SerenityRest.given()
-                .header("Authorization",
-                        "Bearer " + token)
-                .contentType("multipart/form-data")
-                .multiPart("camp_id", id)
-                .multiPart("images", "");
-    }
-
-    @Step
-    public void setDeleteImages(int id, String token){
+    public void setDeleteImages(String token, Object id){
         SerenityRest.given().pathParams("id",id)
                     .header("Authorization",
                             "Bearer " + token);

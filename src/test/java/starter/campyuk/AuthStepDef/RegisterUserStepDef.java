@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.minidev.json.JSONObject;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.campyuk.AuthAPI;
@@ -91,5 +92,16 @@ public class RegisterUserStepDef {
     public void baseURLIs_AndInputJsonBodyForDeleteHost() {
         File json = new File(Constant.JSON_REQUEST+"/Auth/Register/RegisterDeleteHost.json");
         authAPI.setPostRegister(json);
+    }
+
+    @Given("Base URL is _ and input json body {string} as username, {string} as fullName, {string} as email, {string} as password, and {string} as role")
+    public void baseURLIs_AndInputJsonBodyAsUsernameAsFullNameAsEmailAsPasswordAndAsRole(String username, String fullName, String email, String password, String role) {
+        JSONObject bodyJson = new JSONObject();
+        bodyJson.put("username", username);
+        bodyJson.put("fullname", fullName);
+        bodyJson.put("email", email);
+        bodyJson.put("password", password);
+        bodyJson.put("role", role);
+        authAPI.setPostRegisterWJsonObject(bodyJson.toJSONString());
     }
 }
