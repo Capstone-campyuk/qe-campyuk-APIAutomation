@@ -1,8 +1,11 @@
 package starter.campyuk;
 
+import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import starter.campyuk.Utils.Constant;
+
+import java.io.File;
 
 public class BookingAPI {
     public static String DATA_BOOKINGS = Constant.BASE_URL + "/bookings";
@@ -40,12 +43,14 @@ public class BookingAPI {
     }
 
     //POST
-    @Step("Post booking valid path")
-    public void posttbookingValidPath(String token) {
-        SerenityRest.given().header("Authorization", "Bearer " + token);
+    @Step("Post booking valid path as user")
+    public void postbookingValidPath(String token,File json) {
+        SerenityRest.given().header("Authorization", "Bearer " + token)
+                            .contentType(ContentType.JSON)
+                            .body(json);
     }
 
-    @Step ("Post booking invalid path")
+    @Step ("Post booking invalid path as user")
     public void postbookingInvalidPath(String token) {
         SerenityRest.given().header("Authorization", "Bearer " + token);
     }
@@ -61,5 +66,11 @@ public class BookingAPI {
     public void PutAcceptBookingInvalidId(String id, String token) {
         SerenityRest.given().pathParam("id", id)
                 .header("Authorization", "Bearer " + token);
+    }
+
+    public void postCallbackValidPath(String token, File json) {
+        SerenityRest.given().
+                header("Authorization", "Bearer " + token).
+                contentType(ContentType.JSON).body(json);
     }
 }

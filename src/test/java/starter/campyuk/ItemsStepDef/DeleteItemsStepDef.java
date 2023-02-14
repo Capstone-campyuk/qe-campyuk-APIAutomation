@@ -33,22 +33,4 @@ public class DeleteItemsStepDef {
         itemsAPI.deleteItemsWithInvalidId(id, token);
     }
 
-
-    //scenario 3
-    @Given("Delete items with valid path")
-    public void deleteItemsWithValidPath() {
-        Response response = SerenityRest.lastResponse();
-        String token = response.getBody().jsonPath().getString("token");
-        itemsAPI.deleteItemsValidPath(token);
-    }
-
-
-    //scenario 4
-    @Given("Delete items with invalid path")
-    public void deleteItemsWithInvalidPath() {
-        Response response = SerenityRest.lastResponse();
-        String token = response.getBody().jsonPath().getString("token");
-        itemsAPI.deleteItemsInvalidPath(token);
-    }
-
 }

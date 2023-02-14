@@ -25,7 +25,7 @@ public class AddImagesStepDef {
     public void baseURLIs_SetTokenToBearerTokenWithCamp_idAndInputJsonBodyAddImages(int id) {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.IMAGE + "/download(1).jpg");
+        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
         imagesAPI.setPostImages(token, id, image);
     }
 

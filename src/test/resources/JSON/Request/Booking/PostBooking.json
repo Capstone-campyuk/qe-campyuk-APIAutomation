@@ -1,18 +1,18 @@
 {
-  "camp_id": 1,
+  "camp_id": 113,
   "items": [
     {
-      "item_id": 1,
-      "quantity": 2,
-      "rent_cost": 200000
-    },
-    {
-      "item_id": 2,
+      "item_id": 174,
       "quantity": 1,
       "rent_cost": 200000
     },
     {
-      "item_id": 3,
+      "item_id": 175,
+      "quantity": 1,
+      "rent_cost": 200000
+    },
+    {
+      "item_id": 176,
       "quantity": 1,
       "rent_cost": 300000
     }
