@@ -41,7 +41,7 @@
         | price | city    | latitude   | longitude   | address                                                                                             | distance | title                    | description                                                                                         |
         | 15000 | "Bogor" | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
 
-    Scenario Outline: API PUT UPDATE A CAMP as HOST with EMPTY BODY should return response code 200 OK
+    Scenario Outline: API PUT UPDATE A CAMP as HOST with EMPTY CITY, ADDRESS, TITLE, OR DESCRIPTION IN BODY should return response code 200 OK
       Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
       When Set method to POST, Set path to login, and click send button
       And Set token to a method
@@ -54,14 +54,25 @@
       And API should return body message "success update camp"
     Examples:
       | price | city    | latitude   | longitude   | address                                                                                             | distance | title                    | description                                                                                         |
-      | ""    | "Bogor" | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
       | 15000 | ""      | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
-      | 15000 | "Bogor" | ""         | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
-      | 15000 | "Bogor" | -6.6842187 | ""          | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
       | 15000 | "Bogor" | -6.6842187 | 106.7191484 | ""                                                                                                  | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
-      | 15000 | "Bogor" | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | ""       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
       | 15000 | "Bogor" | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | ""                       | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
       | 15000 | "Bogor" | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | ""                                                                                                  |
+
+    Scenario Outline: API PUT UPDATE A CAMP as HOST with EMPTY PRICE IN BODY should return response code 200 OK
+      Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
+      When Set method to POST, Set path to login, and click send button
+      And Set token to a method
+      Given Base URL is _ and set 1 as parameter page camps as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      And Set camp_id to a method with "3" as jsonPath
+      Given Base URL, set token to bearer token, set parameter to camp_id, and input form-data body update camp empty price, <city> as city, <latitude> as latitude, <longitude> as longitude, <address> as address, <distance> as distance, <title> as title, <description> as description, and document
+      When Set method to PUT, Set path to camps, and click send button
+      Then API should return response 200
+      And API should return body message "success update camp"
+      Examples:
+        | city    | latitude   | longitude   | address                                                                                             | distance | title                    | description                                                                                         |
+        | "Bogor" | -6.6842187 | 106.7191484 | "Taman Nasional Gunung Halimun Salak, Tamansari, Kec. Tamansari, Kabupaten Bogor, Jawa Barat 16610" | 16       | "Camp Ground Sukamantri" | "Tempat nyaman untuk berkemah di gunung. Terdapat fasilitas MCK, lapangan luas, dan tempat parkir." |
 
     Scenario Outline: API PUT UPDATE A CAMP as HOST with EMPTY DOCUMENT should return response code 200 OK
       Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
