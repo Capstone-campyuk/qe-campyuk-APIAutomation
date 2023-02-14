@@ -21,7 +21,7 @@ public class PutUserStepDef {
     public void putUserWithBlankNameAndValidToken() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankNameAsGuest(token, image);
     }
 
@@ -30,7 +30,7 @@ public class PutUserStepDef {
     public void putUserWithBlankFullnameAsGuest() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankFullNameAsGuest(token, image);
     }
 
@@ -39,7 +39,7 @@ public class PutUserStepDef {
     public void putUserWithBlankPasswordAsGuest() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankPasswordAsGuest(token, image);
     }
 
@@ -49,7 +49,7 @@ public class PutUserStepDef {
     public void putUserWithValidIdAsGuest() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathAsGuest(token, image);
     }
 
@@ -59,7 +59,7 @@ public class PutUserStepDef {
     public void putUserWithInvalidAsGuest() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putInvalidPathAsGuest(token, image);
     }
 
@@ -69,7 +69,7 @@ public class PutUserStepDef {
     public void putUserWithBlankEmailWithIdAsGuest() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankEmailAsGuest(token, image);
     }
 
@@ -91,7 +91,7 @@ public class PutUserStepDef {
     public void putUserWithValidIdAsHost() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathAsHost(token, image);
     }
 
@@ -101,7 +101,7 @@ public class PutUserStepDef {
     public void putUserWithInvalidAsHost() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putInvalidPathAsHost(token, image);
     }
 
@@ -111,7 +111,7 @@ public class PutUserStepDef {
     public void putUserWithBlankNameAndValidTokenAsHost() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankNameAsHost(token, image);
     }
 
@@ -120,7 +120,7 @@ public class PutUserStepDef {
     public void putUserWithBlankFullnameAsHost() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankFullNameAsHost(token, image);
     }
 
@@ -129,7 +129,7 @@ public class PutUserStepDef {
     public void putUserWithBlankPasswordAsHost() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankPasswordAsHost(token, image);
     }
 
@@ -139,7 +139,7 @@ public class PutUserStepDef {
     public void putUserWithBlankEmailWithId() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        File image = new File(Constant.PHOTO + "/PasPhoto.jpg");
+        File image = new File(Constant.IMAGE + "/PasPhoto.jpg");
         userAPI.putValidPathWithBlankEmailAsHost(token, image);
     }
 

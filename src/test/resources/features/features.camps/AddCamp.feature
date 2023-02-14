@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk @Alifa
   Feature: Testing POST add new camp as host
     As a host I want do add a new camp to the website
 

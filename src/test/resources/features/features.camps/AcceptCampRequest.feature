@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk @Alifa
   Feature: Testing PUT A CAMP to ACCEPTED as ADMIN
     As admin I want to accept camp request from host in website
 

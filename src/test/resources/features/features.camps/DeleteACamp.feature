@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk @Alifa
   Feature: Testing DELETE A CAMP as HOST
     As a host I want to delete my camp in the website
 
