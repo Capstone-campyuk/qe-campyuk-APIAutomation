@@ -12,7 +12,6 @@
       Given Base URL, set token to bearer token, set parameter to camp_id
       When Set method to DELETE, set path to camps, and click send button
       Then API should return response 204
-      And API should return body message "success delete camp"
 
     Scenario: API DELETE A CAMP as HOST with INVALID PARAMETER should return 404 Not Found
       Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
