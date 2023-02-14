@@ -22,7 +22,8 @@ public class PostBookingStepDef {
     public void postBookingWithValidPathAndValidToken() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        bookingAPI.getbookingValidPath(token);
+        File json = new File(Constant.JSON_REQUEST + "/Booking/PostBooking.json");
+        bookingAPI.postbookingValidPath(token, json);
     }
 
     @And("API should return the right JSON Schema Post Booking")
@@ -37,7 +38,7 @@ public class PostBookingStepDef {
     public void postBookingWithInvalidPathAndValidToken() {
         Response response = SerenityRest.lastResponse();
         String token = response.getBody().jsonPath().getString("token");
-        bookingAPI.getbookingValidPath(token);
+        bookingAPI.postbookingInvalidPath(token);
     }
 
 }

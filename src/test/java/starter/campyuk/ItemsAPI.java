@@ -1,6 +1,5 @@
 package starter.campyuk;
 
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import io.restassured.http.ContentType;
@@ -11,7 +10,7 @@ import java.io.File;
 
 public class ItemsAPI {
     public static String DATA_ITEMS = Constant.BASE_URL + "/items";
-    public static String DATA_ITEMS_WITH_ID = Constant.BASE_URL + "/items?id={id}";
+    public static String DATA_ITEMS_WITH_ID = Constant.BASE_URL + "/items/{id}";
     public static String DATA_ITEMS_PATH_INVALID = Constant.BASE_URL + "/itemsaJHFDF";
 
 
@@ -21,7 +20,8 @@ public class ItemsAPI {
     //DETELE ITEMS
     @Step ("Delete items valid path")
     public void deleteItemsValidPath(String token){
-        SerenityRest.given().header("Authorization", "Bearer " + token);
+        SerenityRest.given().header("Authorization", "Bearer " + token)
+                            .log().all();
     }
 
     @Step ("Delete items invalid path")
@@ -46,17 +46,17 @@ public class ItemsAPI {
 
     //POST ITEMS
     @Step("Post items valid path")
-    public void postItemsValidPath(String token, File json){
+    public void postItemsValidPath(String token, String jsonObject){
         SerenityRest.given().header("Authorization", "Bearer " + token)
                             .contentType(ContentType.JSON)
-                            .body(json);
+                            .body(jsonObject).log().all();
     }
 
     @Step("Post items invalid path")
-    public void postItemsInvalidPath(String token, File json){
+    public void postItemsInvalidPath(String token, String jsonObject){
         SerenityRest.given().header("Authorization", "Bearer " + token)
-                            .contentType(ContentType.JSON)
-                            .body(json);
+                .contentType(ContentType.JSON)
+                .body(jsonObject);
     }
 
 }

@@ -3,5 +3,5 @@
   "fullname": "Testing Delete User One",
   "email": "testingdeleteuser1@gmail.com",
   "password": "testdelete123",
-  "role": "user"
+  "role": "guest"
 }

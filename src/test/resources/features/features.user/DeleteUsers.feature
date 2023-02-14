@@ -9,7 +9,6 @@ Feature: Testing DELETE USERS REST API
     Given Delete user with valid path and valid token
     When Send request Delete Users
     Then Should return status code 204
-    And API should return body message "success delete profile"
 
 
   @Campyuk #scenario 2

@@ -17,7 +17,7 @@
         "total_record": {
           "type": "integer"
         },
-        "total_pages": {
+        "total_page": {
           "type": "integer"
         }
       },
@@ -26,7 +26,7 @@
         "limit",
         "offset",
         "total_record",
-        "total_pages"
+        "total_page"
       ]
     },
     "data": {
