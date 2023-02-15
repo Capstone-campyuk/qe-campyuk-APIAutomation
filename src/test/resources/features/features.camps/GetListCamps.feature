@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk @Alifa
   Feature: Testing GET all list camps
     As a user I want to get list all camps on the website
 
@@ -63,7 +63,7 @@
         | 2    |
 
     Scenario Outline:  API GET LIST ALL CAMPS as HOST with VALID PATH AND PARAMETER should return response code 200 OK
-      Given Base URL is _ and input json body log in host
+      Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
       When Set method to POST, Set path to login, and click send button
       Given Base URL is _ and set <page> as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
@@ -74,7 +74,7 @@
       | 2    |
 
     Scenario Outline:  API GET LIST ALL CAMPS as HOST with VALID PATH AND PARAMETER should return response code 200 OK
-      Given Base URL is _ and input json body log in host
+      Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
       When Set method to POST, Set path to login, and click send button
       Given Base URL is _ and set <page> as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button
@@ -85,7 +85,40 @@
         | 2    |
 
     Scenario Outline:  API GET LIST ALL CAMPS as HOST with VALID PATH AND PARAMETER should return response code 200 OK
-      Given Base URL is _ and input json body log in host
+      Given Base URL is _ and input json body log in "testingmhost2" as username and "testh234" as password
+      When Set method to POST, Set path to login, and click send button
+      Given Base URL is _ and set <page> as parameter page camps as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return body message "success show list camp"
+      Examples:
+        | page |
+        | 1    |
+        | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and input json body log in "admin" as username and "admin" as password
+      When Set method to POST, Set path to login, and click send button
+      Given Base URL is _ and set <page> as parameter page camps as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return response 200
+      Examples:
+        | page |
+        | 1    |
+        | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and input json body log in "admin" as username and "admin" as password
+      When Set method to POST, Set path to login, and click send button
+      Given Base URL is _ and set <page> as parameter page camps as logged in user
+      When Set method to GET, Set path to camps, and click send button
+      Then API should return body page <page>
+      Examples:
+        | page |
+        | 1    |
+        | 2    |
+
+    Scenario Outline:  API GET LIST ALL CAMPS as ADMIN with VALID PATH AND PARAMETER should return response code 200 OK
+      Given Base URL is _ and input json body log in "admin" as username and "admin" as password
       When Set method to POST, Set path to login, and click send button
       Given Base URL is _ and set <page> as parameter page camps as logged in user
       When Set method to GET, Set path to camps, and click send button

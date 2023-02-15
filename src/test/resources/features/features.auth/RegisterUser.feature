@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk @Alifa
   Feature: Testing POST Register as User REST API
     As a user I want to register an account to access the website
 
