@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk
   Feature: Testing POST Login as User REST API
     As a user I want to log in to my account to access the website
 

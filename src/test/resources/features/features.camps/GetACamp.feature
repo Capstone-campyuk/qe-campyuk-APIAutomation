@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk
   Feature: Testing GET a camp
     As a user I want to get a camp on the website
 

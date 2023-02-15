@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk
   Feature: Testing GET all list camps
     As a user I want to get list all camps on the website
 

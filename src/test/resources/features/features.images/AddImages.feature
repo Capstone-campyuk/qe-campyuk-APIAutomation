@@ -1,4 +1,4 @@
-@Alifa
+@Campyuk
   Feature: Testing POST images as host
     As a host I want to add images for my camp site
 

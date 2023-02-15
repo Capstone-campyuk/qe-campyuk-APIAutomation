@@ -2,7 +2,7 @@ Feature: Testing GET BOOKING REST API
 
   @Campyuk #scenario 1
   Scenario: API GET BOOKING with VALID path as GUEST
-    Given Base URL is _ and input json body log in guest
+    Given Base URL is _ and input json body log in "nesyaraaUSER" as username and "PUTUSER123" as password
     When Set method to POST, Set path to login, and click send button
     Given Get booking with valid path and valid token
     When Send request Get booking valid path
@@ -12,7 +12,7 @@ Feature: Testing GET BOOKING REST API
 
   @Campyuk #scenario 2
   Scenario: API GET BOOKING with INVALID path as GUEST
-    Given Base URL is _ and input json body log in guest
+    Given Base URL is _ and input json body log in "nesyaraaASGUEST" as username and "nesaandestra" as password
     When Set method to POST, Set path to login, and click send button
     Given Get booking with invalid path and valid token
     When Send request Get booking invalid path
@@ -22,7 +22,7 @@ Feature: Testing GET BOOKING REST API
 
   @Campyuk #scenario 3
   Scenario Outline: API GET BOOKING with VALID path, VALID id and VALID token as GUEST
-    Given Base URL is _ and input json body log in guest
+    Given Base URL is _ and input json body log in "nesyaraaASGUEST" as username and "nesaandestra" as password
     When Set method to POST, Set path to login, and click send button
     Given Get booking with valid path, valid <id> and valid token
     When Send request Get booking valid id
@@ -30,12 +30,12 @@ Feature: Testing GET BOOKING REST API
     And API should return body message "success show detail booking"
     Examples:
       | id |
-      | 80 |
+      | 139 |
 
 
   @Campyuk #scenario 4
   Scenario Outline: API GET BOOKING with VALID path, INVALID id and VALID token as GUEST
-    Given Base URL is _ and input json body log in guest
+    Given Base URL is _ and input json body log in "nesyaraaASGUEST" as username and "nesaandestra" as password
     When Set method to POST, Set path to login, and click send button
     Given Get booking with valid path, invalid "<id>" and valid token
     When Send request Get booking invalid id
@@ -77,7 +77,7 @@ Feature: Testing GET BOOKING REST API
     And API should return body message "success show detail booking"
     Examples:
       | id |
-      | 80 |
+      | 139  |
 
 
   @Campyuk #scenario 8
