@@ -9,7 +9,7 @@ Feature: Testing DELETE ITEMS REST API
     Then Should return status code 204
     Examples:
       | id  |
-      | 186 |
+      | 241 |
 
 
   @Campyuk #scenario 2

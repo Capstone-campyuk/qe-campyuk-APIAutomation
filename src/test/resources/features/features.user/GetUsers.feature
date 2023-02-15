@@ -2,7 +2,7 @@ Feature: Testing GET REST API
 
   @Campyuk #scenario 1
   Scenario: API GET USERS with VALID path as GUEST
-    Given Base URL is _ and input json body log in guest
+    Given Base URL is _ and input json body log in "nesyaraaASGUEST" as username and "nesaandestra" as password
     When Set method to POST, Set path to login, and click send button
     Given Get user with valid path and valid token
     When Send request Get Users
@@ -13,7 +13,7 @@ Feature: Testing GET REST API
 
   @Campyuk #scenario 2
   Scenario: API GET USERS with INVALID path as GUEST
-    Given Base URL is _ and input json body log in guest
+    Given Base URL is _ and input json body log in "nesyaraaASGUEST" as username and "nesaandestra" as password
     When Set method to POST, Set path to login, and click send button
     Given Get user with invalid path and valid token
     When Send request Get Users invalid path

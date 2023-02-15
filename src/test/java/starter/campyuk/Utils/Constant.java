@@ -7,6 +7,4 @@ public class Constant {
     public static String JSON_SCHEMA = DIR+"/src/test/resources/JSON/JsonSchema";
     public static String IMAGE = DIR+"/src/test/resources/Images";
     public static String DOC = DIR+"/src/test/resources/Documents";
-
-
 }

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        tags = "@Alifa",
+        tags = "@Campyuk",
         plugin = {"pretty"},
         features = "classpath:features"
 )
