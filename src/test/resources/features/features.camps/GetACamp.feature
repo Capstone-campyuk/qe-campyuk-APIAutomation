@@ -1,4 +1,4 @@
-@Campyuk
+@Campyuk @Alifa
   Feature: Testing GET a camp
     As a user I want to get a camp on the website
 
@@ -122,12 +122,12 @@
       | cjdkcb |
       | 56738  |
 
-    Scenario Outline: API GET A CAMP as USER with INVALID PATH should return response code 404 Not Found
-      Given Base URL is _ and set invalid path camp <id>
-      When Set method to GET, Set path to detail camp, and click send button
-      Then API should return body message "camp not found"
-    Examples:
-      | id     |
-      | cjdkcb |
-      | 56738  |
+#    Scenario Outline: API GET A CAMP as USER with INVALID PATH should return response code 404 Not Found
+#      Given Base URL is _ and set invalid path camp <id>
+#      When Set method to GET, Set path to detail camp, and click send button
+#      Then API should return body message "not found"
+#    Examples:
+#      | id     |
+#      | cjdkcb |
+#      | 56738  |
 

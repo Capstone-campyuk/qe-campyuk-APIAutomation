@@ -1,4 +1,4 @@
-@Campyuk
+@Campyuk @Alifa
 Feature: Testing PUT A CAMP to DECLINED as ADMIN
   As admin I want to decline camp request from host in website
 

@@ -1,4 +1,4 @@
-@Campyuk
+@Campyuk @Alifa
   Feature: Testing POST Login as User REST API
     As a user I want to log in to my account to access the website
 
@@ -45,32 +45,32 @@
       And API should return body token is not null
       And API should return the right JSON Schema log in user
 
-    Scenario: API POST LOGIN as GUEST with blank username should success then return 400 Bad Request response code
+    Scenario: API POST LOGIN as GUEST with blank username should fail then return 400 Bad Request response code
       Given Base URL is _ and input json body log in "" as username and "test123" as password
       When Set method to POST, Set path to login, and click send button
       Then API should return response 400
 
-    Scenario: API POST LOGIN as GUEST with blank username should success then return 400 Bad Request response code
+    Scenario: API POST LOGIN as GUEST with blank username should fail then return 400 Bad Request response code
       Given Base URL is _ and input json body log in "" as username and "test123" as password
       When Set method to POST, Set path to login, and click send button
       Then API should return body message "username is empty"
 
-    Scenario: API POST LOGIN as GUEST with blank password should success then return 400 Bad Request response code
+    Scenario: API POST LOGIN as GUEST with blank password should fail then return 400 Bad Request response code
       Given Base URL is _ and input json body log in "testingmuser1" as username and "" as password
       When Set method to POST, Set path to login, and click send button
       Then API should return response 400
 
-    Scenario: API POST LOGIN as GUEST with blank password should success then return the right message
+    Scenario: API POST LOGIN as GUEST with blank password should fail then return the right message
       Given Base URL is _ and input json body log in "testingmuser1" as username and "" as password
       When Set method to POST, Set path to login, and click send button
       Then API should return body message "password is empty"
 
-    Scenario: API POST LOGIN as GUEST with INVALID path should success then return 404 Not Found response code
+    Scenario: API POST LOGIN as GUEST with INVALID path should fail then return 404 Not Found response code
       Given Base URL is _ and input json body log in "testingmuser1" as username and "test123" as password
       When Set method to POST, Set path to loginbkjgkhGY, and click send button
-      Then API should return response 400
+      Then API should return response 404
 
-    Scenario: API POST LOGIN as GUEST with INVALID path should success then return the right message
+    Scenario: API POST LOGIN as GUEST with INVALID path should fail then return the right message
       Given Base URL is _ and input json body log in "testingmuser1" as username and "test123" as password
       When Set method to POST, Set path to loginbkjgkhGY, and click send button
       Then API should return body message "Not Found"
