@@ -56,7 +56,10 @@ mvn clean verify
 
 ## Author
 -[Diqy](https://github.com/dqcode)
+
 -[Diah](https://github.com/diahrdn)
+
 -[Nesa](https://github.com/nesyaraa)
+
 -[Alifa](https://github.com/alifalmr)
 
