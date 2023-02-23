@@ -60,3 +60,6 @@ mvn clean verify
 - [Nesa](https://github.com/nesyaraa)
 - [Alifa](https://github.com/alifalmr)
 
+
+## Test Case Manual
+https://docs.google.com/spreadsheets/d/16rz1u67KtXnbtRn6hunM-gFEq8F00R80ySIFGdHwmpE/edit#gid=1946511507
