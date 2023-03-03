@@ -9,7 +9,7 @@ A website for campground owners renting out their spaces to travelers looking fo
 
 [API Manual Testing](https://docs.google.com/spreadsheets/d/16rz1u67KtXnbtRn6hunM-gFEq8F00R80ySIFGdHwmpE/edit?usp=sharing)
 
-[API Automation Testing]
+[API Automation Testing](https://docs.google.com/spreadsheets/d/14rxNOc5DNSQHmlik00T8HcEIr4wQ7p9iA4OpctWrJ-s/edit?usp=sharing)
 
 ## Tech Stack
 **Manual**:Postman
