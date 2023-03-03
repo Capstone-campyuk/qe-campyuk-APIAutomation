@@ -12,7 +12,7 @@ A website for campground owners renting out their spaces to travelers looking fo
 [API Automation Testing](https://docs.google.com/spreadsheets/d/14rxNOc5DNSQHmlik00T8HcEIr4wQ7p9iA4OpctWrJ-s/edit?usp=sharing)
 
 ## Tech Stack
-**Manual**:Postman
+**Manual**: Postman
 
 **Automation**: Intellij IDEA, Maven
 
@@ -60,6 +60,3 @@ mvn clean verify
 - [Nesa](https://github.com/nesyaraa)
 - [Alifa](https://github.com/alifalmr)
 
-
-## Test Case Manual
-https://docs.google.com/spreadsheets/d/16rz1u67KtXnbtRn6hunM-gFEq8F00R80ySIFGdHwmpE/edit#gid=1946511507
